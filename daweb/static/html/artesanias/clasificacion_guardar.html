@@ -1,0 +1,14 @@
+    public function guardar(){
+       $id          = $_POST['id']?? 0;
+       $descripcion = $_POST['descripcion'];
+       $padre       = $_POST['padre'];
+       //--- validar datos
+
+       //--- asociar al modelo
+       $this->model->id=$id;
+       $this->model->descripcion = $descripcion;
+       $this->model->padre       = $padre;
+       $this->model->save();
+       //--- 
+       HTTPHelper::go("/artesanias/clasificacion/listar");
+    }
